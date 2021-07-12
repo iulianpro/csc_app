@@ -1,0 +1,154 @@
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #08454e;
+}
+
+.container {
+    background-color: #fff;
+}
+
+.header {
+    padding: 50px 50px 0;
+}
+
+.header h4 {
+    color: #0e7e9f;
+    margin-bottom: 10px;
+}
+
+form {
+    background-color: #efefef;
+    padding: 25px;
+    margin: 25px 0 25px 25px;
+}
+
+label {
+    font-weight: 700;
+}
+
+label.error {
+    font-weight: 100;
+    color: red;
+    display: block;
+}
+
+#submitMessage {
+    color: #08454e;
+}
+
+.sidebar {
+    margin-right: 25px;
+}
+
+.address-box {
+    background-color: #efefef;
+    margin-top: -10px;
+}
+
+.address-box-inner {
+    padding: 35px 25px 25px;
+}
+
+.address-box-content {
+    border-left: 5px solid #aea8a8;
+    padding-left: 10px;
+}
+
+.list-group-item {
+    border: none;
+    padding: .75em 1em .75em 0 !important;
+    background-color: #efefef;
+}
+
+.fab, .far, .fas {
+    font-size: 35px;
+}
+
+.follow-box {
+    border-top: 5px solid #0e7e9f;
+}
+
+.follow-box, .menu-box {
+    margin-top: 25px;
+}
+
+.follow-box-inner, .menu-box-inner {
+    padding: 25px;
+    background-color: #efefef;
+}
+
+ul li a {
+    color: #4360b4;
+}
+
+.about-header {
+    width: 80%;
+}
+
+.about-box {
+    margin: 25px 0 25px 35px;
+}
+
+.about-box p:nth-child(2) {
+    margin-top: 15px;
+}
+
+.skills-box {
+    margin: 0 0 25px 35px;
+}
+
+.skills-box p:first-child {
+    width: 10%;
+    height: 140px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.skills-box p:first-child i {
+    color: #08454e;
+}
+
+.menu-box-inner {
+    height: 150px;
+}
+
+.first {
+    margin-right: 15px;
+    border-right: 5px solid #aea8a8;
+    padding-right: 15px;
+}
+
+.break {
+    width: 100%;
+    height: 0;
+}
+
+@media (min-width:767px) and (max-width: 992px) {
+    .menu-box-inner {
+        height: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-box {
+        margin: 25px 0 25px 0;
+    }
+    .about-header {
+        width: 100%;
+    }
+    .header {
+        padding: 50px 15px 0;
+    }
+    .sidebar {
+        margin-right: 0;
+        padding-bottom: 50px;
+    }
+    form {
+        margin: 25px 0 25px 0;
+    }
+}
