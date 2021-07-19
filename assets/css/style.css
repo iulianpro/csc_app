@@ -139,6 +139,11 @@ ul li a {
     visibility: hidden;
 }
 
+#change {
+    color: #4360b4;
+    text-decoration: underline;
+}
+
 @media (min-width:767px) and (max-width: 992px) {
     .menu-box-inner {
         height: 300px;

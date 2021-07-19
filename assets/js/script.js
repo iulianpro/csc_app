@@ -52,7 +52,7 @@ $(document).ready(function () {
                             $('#addresses, #addresseslabel').removeClass('d-none');
                             $('#findaddress').removeClass('d-inline-block');
                             $('#validationpostcode, #findaddress').addClass('d-none');
-                            $('#postcodelabel').after('<p class="mr-3 mb-3 d-inline-block">' + address.addresses[0].PostCode + '</p><a class="d-inline-block" href="">Change</a>')
+                            $('#postcodelabel').after('<p id="printpostcode" class="mr-3 mb-3 d-inline-block">' + address.addresses[0].PostCode + '</p><a class="d-inline-block" id="change" type="button">Change</a>')
                             $.each(address.addresses, function (i) {
                                 String.prototype.uppwords = function () {
                                     return this.toLowerCase().replace(/\b[a-z]/g, function (first) {
@@ -125,4 +125,10 @@ $(document).ready(function () {
             return false;
         }
     })
+});
+
+$(document).on('click', '#change', function () {
+    $('#printpostcode, #addresses option, #change').remove();
+    $('#addresses, #addresseslabel').addClass('d-none');
+    $('#validationpostcode, #findaddress').removeClass('d-none');
 });
