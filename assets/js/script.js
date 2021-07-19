@@ -29,6 +29,7 @@ $(document).ready(function () {
     // Fetch data from API
     $('#findaddress').click(function (e) {
         e.preventDefault();
+        $('#loader').removeClass('hidden');
         let askedPC = $('#validationpostcode').val();
         let postMatch = new RegExp(/[A-z]{1,2}[0-9]{1,2} [0-9][A-Z]{2}/i);
         let url = 'https://interviewtask.azurewebsites.net/api/address?postcode=';
@@ -40,23 +41,34 @@ $(document).ready(function () {
                     type: "GET",
                     url: askedURL,
                     success: function (address) {
-                        $('#addresses, #addresseslabel').removeClass('d-none');
-                        $('#validationpostcode, #findaddress').addClass('d-none');
-                        $('#postcodelabel').after('<p class="mr-3 mb-3 d-inline-block">' + address.addresses[0].PostCode + '</p><a class="d-inline-block" href="">Change</a>')
-                        $.each(address.addresses, function (i) {
-                            String.prototype.uppwords = function () {
-                                return this.toLowerCase().replace(/\b[a-z]/g, function (first) {
-                                    return first.toUpperCase();
-                                });
-                            }
-                            $addresses.append('<option>' + (address.addresses[i].Name).uppwords() + ', ' + (address.addresses[i].PostCode) + ', ' + (address.addresses[i].Town) + '</option>');
-                        });
+                        $('#loader').removeClass('d-none');
+                        let addressesList = address.addresses;
+                        if (jQuery.isEmptyObject(addressesList)) {
+                            $('#loader').addClass('hidden');
+                            alert('This is not a valid Colchester postcode, please fill in a valid one')
+                        }
+                        else {
+                            $('#loader').addClass('hidden');
+                            $('#addresses, #addresseslabel').removeClass('d-none');
+                            $('#findaddress').removeClass('d-inline-block');
+                            $('#validationpostcode, #findaddress').addClass('d-none');
+                            $('#postcodelabel').after('<p class="mr-3 mb-3 d-inline-block">' + address.addresses[0].PostCode + '</p><a class="d-inline-block" href="">Change</a>')
+                            $.each(address.addresses, function (i) {
+                                String.prototype.uppwords = function () {
+                                    return this.toLowerCase().replace(/\b[a-z]/g, function (first) {
+                                        return first.toUpperCase();
+                                    });
+                                }
+                                $addresses.append('<option>' + (address.addresses[i].Name).uppwords() + ', ' + (address.addresses[i].PostCode) + ', ' + (address.addresses[i].Town) + '</option>');
+                            });
+                        }
                     }
                 });
             })
         }
         else {
             alert('Please use a UK valid postcode including space in between')
+            $('#loader').addClass('hidden');
         }
     });
 

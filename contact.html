@@ -75,7 +75,9 @@
                             <h4 class="mb-3">What is your home address?</h4>
                             <label for="validationpostcode" id="postcodelabel" class="d-block">Postcode<sup class="text-danger font-weight-bold">*</sup></label>
                             <input type="text" class="form-control" id="validationpostcode" name="validationpostcode">
-                            <a id="findaddress" class="btn btn-secondary text-white mt-3" type="button">Find address</a><br>
+                            <a id="findaddress" class="btn btn-secondary text-white mt-3 d-inline-block" type="button">Find address</a>
+                            <p id="loader" class="d-inline-block hidden"><img class="loader" src="/csc_app/assets/img/loading.gif" alt="loader"></p>
+                            <br>
                             <label for="addresses" id="addresseslabel" class="d-none">Select your address<sup class="text-danger font-weight-bold">*</sup></label><br>
                             <select name="addresses" id="addresses" class="form-control d-none"></select>
                         </div>
